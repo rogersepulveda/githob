@@ -1,0 +1,67 @@
+comandos 
+
+
+git init  #inicia el repositorio 
+git status -s  # estado de seguimiento 
+git add [nombre de archicio ] # agrega un archivo espefico 
+git commiit -m "comienzo del proyecto" # priomer commit del proyecto 
+
+git config --global user.username "Roger" #configurar nombre 
+git config --global user.email "Roger@hot.com" #Configura el email 
+
+git status -s  # muestra el estaus  
+git log --oneline # muetsra los cambios que se habn realizado 
+git reset --hard [codigo al cual regresar ] # regresa a una version del archivo 
+
+ git add .
+ git commit 
+
+git commit -am "comentario " #hace los dos de una ves el add y el commit 
+ 
+modificar el comentario de un comando es con 
+git commit --amend #entra al editor
+:i   #para rditar 
+
+:q → sale del archivo, si no tenemos cambios sin guardar sale sin más.
+:q! → sale del archivo descartando los cambios no guardados.
+:w → guarda los cambios del archivo, pero no sale de Vim para seguir editando el archivo.
+:wq → guarda los cambios y sale de Vim.
+:x → igual que el anterior.
+ZZ → igual que :x
+ZQ → igual que :q!
+
+
+git remote add origin git@github.com:rogersepulveda/BtcYPython.git
+git branch -M main
+git push -u origin main
+
+
+#como crear la llave ssh de git hut 
+
+# configurar el usuario y el correo 
+#con:
+git config --global user.name "rogersepulveda"
+git config --global user.email "rogersepulveda@hotmail.com"
+git config -list
+git config -l 
+#cambia el usuario 
+
+#crear la llave ssh
+#se debe estar en el home 
+ssh-keygen -t rsa -b 4096 -C "rogersepulveda@hotmail"  # colocamos pass 
+#se copia la llave publica en github
+eval $(ssh-agent -s)  # se evalua si esta corriendo el servicio de llaves 
+
+#agregar la llave al sistema
+#~
+# ern la ruta donde estan la llaves 
+ssh-add ~/.ssh/id_rsa #enter solicita la clave y add ok 
+
+#Comprobamos el remoto 
+git remote -v
+#para convertir nuetra ra en principal escribimos 
+git branch -m main 
+git push origin main #manda datos a rama remota 
+git pull origin master 
+git pull origin main
+git pull origin main  --allow-unrelated-histories
